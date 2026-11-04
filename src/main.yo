@@ -1,6 +1,15 @@
-{ InitWindow, CloseWindow, WindowShouldClose, SetTargetFPS,
-  BeginDrawing, EndDrawing, ClearBackground, DrawText,
-  RAYWHITE, DARKGRAY } :: import("./lib");
+{
+  InitWindow,
+  CloseWindow,
+  WindowShouldClose,
+  SetTargetFPS,
+  BeginDrawing,
+  EndDrawing,
+  ClearBackground,
+  DrawText,
+  RAYWHITE,
+  DARKGRAY
+} :: import("./lib");
 
 pragma(Pragma.AllowUnsafe);
 
