@@ -1,4 +1,4 @@
-# raylib_yo
+# raylib-yo
 
 Comprehensive [raylib](https://www.raylib.com/) bindings for the [Yo](https://github.com/shd101wyy/Yo) programming language.
 
@@ -13,20 +13,20 @@ Comprehensive [raylib](https://www.raylib.com/) bindings for the [Yo](https://gi
 Dependencies live in `yo.toml`, and `yo add` writes the entry for you:
 
 ```bash
-yo add shd101wyy/raylib_yo
+yo add shd101wyy/raylib-yo
 ```
 
 That records it in your `yo.toml` and pins the resolved commit in `yo.lock`:
 
 ```toml
 [dependencies]
-raylib_yo = { git = "https://github.com/shd101wyy/raylib_yo", version = "^0.0.7" }
+raylib-yo = { git = "https://github.com/shd101wyy/raylib-yo", version = "^0.0.8" }
 ```
 
 Import it by package name — no paths:
 
 ```rust
-{ InitWindow, CloseWindow, BeginDrawing, EndDrawing, ClearBackground, Color } :: import("raylib_yo");
+{ InitWindow, CloseWindow, BeginDrawing, EndDrawing, ClearBackground, Color } :: import("raylib-yo");
 ```
 
 raylib itself is a **system** library, so link it in `build.yo`:
@@ -62,7 +62,7 @@ fresh clone run `yo install` once.
 ```rust
 { InitWindow, CloseWindow, WindowShouldClose, SetTargetFPS,
   BeginDrawing, EndDrawing, ClearBackground, DrawText,
-  RAYWHITE, DARKGRAY } :: import("raylib_yo");
+  RAYWHITE, DARKGRAY } :: import("raylib-yo");
 
 // raylib's functions are extern "c", so every call site has to be
 // audit-capable. `pragma` grants the file the privilege; `unsafe(...)` marks

@@ -14,7 +14,7 @@
 pragma(Pragma.AllowUnsafe);
 
 main :: (fn() -> unit)({
-  unsafe(InitWindow(i32(800), i32(450), "raylib_yo - Hello Raylib!"));
+  unsafe(InitWindow(i32(800), i32(450), "raylib-yo - Hello Raylib!"));
   unsafe(SetTargetFPS(i32(60)));
 
   while(!unsafe(WindowShouldClose()), {
