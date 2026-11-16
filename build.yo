@@ -1,30 +1,34 @@
 build :: import("std/build");
 
-raylib :: build.system_library({
-  name : "raylib",
-  defines : "NOMINMAX NOGDI NOUSER"
-});
+raylib :: build.system_library(
+  .{
+    name : "raylib",
+    defines : "NOMINMAX NOGDI NOUSER"
+  }
+);
 
 // The module's root file is declared in `yo.toml` `[modules]`; `build.module`
 // names it so raylib can be linked into anything that imports it.
-mod :: build.module({ name : "default" });
+mod :: build.module(.{ name : "default" });
 mod.link(raylib);
 
-exe :: build.executable({ name : "raylib-yo", root : "./src/main.yo", optimize : build.Optimize.ReleaseFast });
+exe :: build.executable(.{ name : "raylib-yo", root : "./src/main.yo", optimize : build.Optimize.ReleaseFast });
 exe.link(raylib);
 
-lib :: build.static_library({ name : "raylib-yo-lib", root : "./src/lib.yo" });
+lib :: build.static_library(.{ name : "raylib-yo-lib", root : "./src/lib.yo" });
 
-tests :: build.test({ name : "tests", root : "./tests/" });
+tests :: build.test(.{ name : "tests", root : "./tests/" });
 
 run_exe :: build.run(exe);
 
-docs :: build.doc({
-  name : "docs",
-  root : "./src",
-  output : "yo-out/doc",
-  title : "raylib-yo Documentation",
-});
+docs :: build.doc(
+  .{
+    name : "docs",
+    root : "./src",
+    output : "yo-out/doc",
+    title : "raylib-yo Documentation",
+  }
+);
 
 install :: build.step("install", "Build all artifacts");
 install.depend_on(exe);
